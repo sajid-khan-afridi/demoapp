@@ -4,7 +4,7 @@ import Dinner from './dinner.js';
 function App() {
   return (
     <div>
-    <h1>Hello World from Aamir</h1>
+    <h1>Hello World from sajid khan afridi</h1>
     {/* <Dinner></Dinner> */}
     <hr/>
     <Dinner dishName="Nihaari" sweetDish="Kheer" />
