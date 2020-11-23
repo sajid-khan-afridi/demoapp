@@ -14,33 +14,33 @@ on:
   
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
-  jobs:
+jobs:
   # This workflow contains a single job called "build"
-    build:
+  build:
     # The type of runner that the job will run on
-      runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-      steps:
+    steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-      - uses: actions/checkout@v2-beta
-        with:
-          version: 12  
+    - uses: actions/checkout@v2-beta
+      with:
+        version: 12  
 
       # Runs a single command using the runners shell
-      - name: Github Action for Yarn
-        uses: Borales/actions-yarn@v2.1.0
-        with:
-          cmd: install 
+    - name: Github Action for Yarn
+      uses: Borales/actions-yarn@v2.1.0
+      with:
+        cmd: install 
 
       # Runs a set of commands using the runners shell
-      - name: Creating build
-        run: yarn build
+    - name: Creating build
+      run: yarn build
           
-      - name: installing surge
-        run: npm install -g surge
+    - name: installing surge
+      run: npm install -g surge
         
-      - name: deploying on surge
-        run: surge ./build http:bootcamp_demoapp.surge.sh --token ${{secrets.SURGE_TOKEN}}
+    - name: deploying on surge
+      run: surge ./build http:bootcamp_demoapp.surge.sh --token ${{secrets.SURGE_TOKEN}}
